@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<p>hi!  This is a dialog that is was opened by <b><span id="who">...</span></b>.</p>
+
+<p>Here are its parameters:</p>
+<pre>
+</pre>
+<button>close</button>
+</body>
+<script src="../winchan.js"></script>
+<script src="jquery.js"></script>
+<script>
+
+WinChan.onOpen(function(origin, r, cb) {
+  $("#who").text(origin);
+  $("pre").text(JSON.stringify(r, null, "    "));
+
+  $("button").click(function() {
+    cb({
+      thanks: 'for',
+      "calling": true,
+      timestamp: new Date().toString()
+    });
+    window.close();
+  });
+});
+
+</script>
+</html>

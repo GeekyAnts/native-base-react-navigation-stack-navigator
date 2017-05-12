@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="/winchan.js"></script>
+<script>
+// Delay the load so that there is time to add the extra iframe in the parent.
+setTimeout(function() {
+    WinChan.onOpen(function(origin, args, cb) {
+        cb(args);
+    });
+}, 1000);
+</script>
+</head>
+</html>

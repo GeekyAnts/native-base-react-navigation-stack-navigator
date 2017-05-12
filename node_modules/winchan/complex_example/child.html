@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<p>hi!  This is a dialog that is was opened by <b><span id="who">...</span></b>.</p>
+
+<p>Here are its parameters:</p>
+<pre>
+</pre>
+<button id="nav_away">navigate away</button>
+<button id="close">close</button>
+</body>
+<script src="../winchan.js"></script>
+<script src="jquery.js"></script>
+<script>
+if (!window.location.origin) {
+  window.location.origin = window.location.protocol + "//" + window.location.hostname + (window.location.port ? ':' + window.location.port: '');
+}
+
+
+var wc = WinChan.onOpen(function(origin, r, cb) {
+  $("#who").text(origin);
+  $("pre").text(JSON.stringify(r, null, "    "));
+
+  $("button#close").click(function() {
+    cb({
+      thanks: 'for',
+      "calling": true,
+      timestamp: new Date().toString()
+    });
+    window.close();
+  });
+  $("button#nav_away").click(function() {
+    wc.detach();
+    window.location = window.location.origin + "/complex_example/child2.html";
+  });
+});
+
+</script>
+</html>

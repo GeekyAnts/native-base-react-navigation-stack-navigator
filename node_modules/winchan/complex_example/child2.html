@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<p>hi!  this is a page that you got redirected to inside the dialog</p>
+<button>go back</button>
+</body>
+<script src="../winchan.js"></script>
+<script src="jquery.js"></script>
+<script>
+
+if (!window.location.origin) {
+  window.location.origin = window.location.protocol + "//" + window.location.hostname + (window.location.port ? ':' + window.location.port: '');
+}
+
+$("button").click(function() {
+  window.location = window.location.origin + "/complex_example/child.html#complete";
+});
+
+</script>
+</html>

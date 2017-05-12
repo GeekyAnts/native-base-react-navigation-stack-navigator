@@ -1,0 +1,9 @@
+-classpath '/Users/leland_richardson/Library/Android/sdk/platforms/android-25/android.jar'
+-d '/Users/leland_richardson/code/lottie-react-native/lib/android/build/docs/javadoc'
+-doctitle 'android API'
+-quiet 
+-windowtitle 'android API'
+'/Users/leland_richardson/code/lottie-react-native/lib/android/src/main/java/com/airbnb/android/react/lottie/JSONReadableArray.java'
+'/Users/leland_richardson/code/lottie-react-native/lib/android/src/main/java/com/airbnb/android/react/lottie/JSONReadableMap.java'
+'/Users/leland_richardson/code/lottie-react-native/lib/android/src/main/java/com/airbnb/android/react/lottie/LottieAnimationViewManager.java'
+'/Users/leland_richardson/code/lottie-react-native/lib/android/src/main/java/com/airbnb/android/react/lottie/LottiePackage.java'

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<body>
+<p>
+hi!  this page opens and closes popups like mad in rapid succession.  it 
+searches for race conditions in things like relay frames.  click the button
+to run 100 iterations.  DISABLE POPUP BLOCKING too!
+<button>run 100x</button>
+</p>
+
+<p>Here is the response from the window:</p>
+<pre>
+</pre>
+
+</body>
+<script src="../../winchan.js"></script>
+<script src="jquery.js"></script>
+<script>
+
+
+$("button").click(function(e) {
+  var iterations = 0, success = 0;
+
+  e.preventDefault();
+  function doIt() {
+    WinChan.open({
+      url: "http://127.0.0.1:8200/test/stress/child.html",
+      relay_url: "http://127.0.0.1:8200/relay.html",
+      window_features: "menubar=0,location=0,resizable=0,scrollbars=0,status=0,dialog=1,width=700,height=375",
+      params: {
+        these: "things",
+        are: "input parameters",
+        the: "interface",
+        is_beautiful: true,
+        timestamp: new Date().toString()
+      }
+    }, function(err, r) {
+      if (!err) success++;
+      if (++iterations < 50) setTimeout(doIt, 0);
+      $("pre").text("successful/total iterations: " + success + "/" + iterations);
+    });
+  }
+  doIt();
+});
+
+</script>
+</html>

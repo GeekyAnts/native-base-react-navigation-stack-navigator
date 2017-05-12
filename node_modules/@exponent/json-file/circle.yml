@@ -1,0 +1,7 @@
+machine:
+  node:
+    version: node
+
+dependencies:
+  override:
+    - npm prune && npm install

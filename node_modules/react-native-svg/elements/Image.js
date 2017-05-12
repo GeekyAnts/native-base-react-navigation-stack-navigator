@@ -1,0 +1,60 @@
+import React, {PropTypes} from 'react';
+import createReactNativeComponentClass from 'react-native/Libraries/Renderer/src/renderers/native/createReactNativeComponentClass';
+import {ImageAttributes} from '../lib/attributes';
+import {numberProp, touchableProps, responderProps} from '../lib/props';
+import Shape from './Shape';
+import resolveAssetSource from 'react-native/Libraries/Image/resolveAssetSource';
+import {meetOrSliceTypes, alignEnum} from './ViewBox';
+const spacesRegExp = /\s+/;
+
+class Image extends Shape {
+    static displayName = 'Image';
+    static propTypes = {
+        ...responderProps,
+        ...touchableProps,
+        x: numberProp,
+        y: numberProp,
+        width: numberProp.isRequired,
+        height: numberProp.isRequired,
+        href: PropTypes.number.isRequired,
+        preserveAspectRatio: PropTypes.string
+    };
+
+    static defaultProps = {
+        x: 0,
+        y: 0,
+        width: 0,
+        height: 0,
+        preserveAspectRatio: 'xMidYMid meet'
+    };
+
+    setNativeProps = (...args) => {
+        this.root.setNativeProps(...args);
+    };
+
+    render() {
+        let {props} = this;
+        let modes = props.preserveAspectRatio.trim().split(spacesRegExp);
+        let meetOrSlice = meetOrSliceTypes[modes[1]] || 0;
+        let align = alignEnum[modes[0]] || 'xMidYMid';
+
+        return <RNSVGImage
+            ref={ele => {this.root = ele;}}
+            {...this.extractProps({...props, x: null, y: null}, {responder: true, transform: true})}
+            x={props.x.toString()}
+            y={props.y.toString()}
+            width={props.width.toString()}
+            height={props.height.toString()}
+            meetOrSlice={meetOrSlice}
+            align={align}
+            src={resolveAssetSource(props.href)}
+        />;
+    }
+}
+
+const RNSVGImage = createReactNativeComponentClass({
+    validAttributes: ImageAttributes,
+    uiViewClassName: 'RNSVGImage'
+});
+
+export default Image;

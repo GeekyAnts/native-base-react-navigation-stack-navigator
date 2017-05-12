@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="LottieAnimationView"><attr format="string" name="lottie_fileName"/><attr format="boolean" name="lottie_autoPlay"/><attr format="boolean" name="lottie_loop"/></declare-styleable>
+    <item name="lottie_layer_name" type="id"/>
+</resources>
