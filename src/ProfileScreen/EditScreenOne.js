@@ -17,7 +17,7 @@ import {
   H1
 } from "native-base";
 
-export default class Profile extends React.Component {
+export default class EditScreenOne extends React.Component {
   static navigationOptions = ({ navigation }) => ({
     header: (
       <Header>
@@ -27,33 +27,34 @@ export default class Profile extends React.Component {
           </Button>
         </Left>
         <Body>
-          <Title>Profile</Title>
+          <Title>EditScreenOne</Title>
         </Body>
         <Right />
       </Header>
     )
   });
-
-  componentDidMount() {
-    Alert.alert(
-      "Access Denied",
-      "Oops, Looks like you do not have access to view profiles"
-    );
-  }
-
   render() {
     return (
       <Container>
-        <Content>
+        <Content padder>
           <Card>
             <CardItem>
               <Icon active name="paper-plane" />
-              <Text>Nothing to show</Text>
+              <Text>Edit Screen 1</Text>
               <Right>
                 <Icon name="close" />
               </Right>
             </CardItem>
           </Card>
+          <Button
+            full
+            rounded
+            primary
+            style={{ marginTop: 10 }}
+            onPress={() => this.props.navigation.navigate("EditScreenTwo")}
+          >
+            <Text>Goto EditScreenTwo</Text>
+          </Button>
         </Content>
       </Container>
     );

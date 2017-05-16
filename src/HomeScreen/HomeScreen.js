@@ -1,6 +1,5 @@
 import React from "react";
-import { AppRegistry } from "react-native";
-
+import { StatusBar } from "react-native";
 import {
   Button,
   Text,
@@ -10,26 +9,30 @@ import {
   Body,
   Content,
   Header,
-  Title
+  Title,
+  Left,
+  Icon,
+  Right
 } from "native-base";
-import { StackNavigator } from "react-navigation";
-import MainScreenNavigator from "./ChatScreen.js";
-import Profile from "./Profile.js";
 
-class HomeScreen extends React.Component {
-  static navigationOptions = {
-    header: (
-      <Header>
-        <Body>
-          <Title>Welcome</Title>
-        </Body>
-      </Header>
-    )
-  };
+export default class HomeScreen extends React.Component {
   render() {
-    const { navigate } = this.props.navigation;
     return (
       <Container>
+        <Header>
+          <Left>
+            <Button
+              transparent
+              onPress={() => this.props.navigation.navigate("DrawerOpen")}
+            >
+              <Icon name="menu" />
+            </Button>
+          </Left>
+          <Body>
+            <Title>HomeScreen</Title>
+          </Body>
+          <Right />
+        </Header>
         <Content padder>
           <Card>
             <CardItem>
@@ -43,7 +46,7 @@ class HomeScreen extends React.Component {
             rounded
             dark
             style={{ marginTop: 10 }}
-            onPress={() => navigate("Chat")}
+            onPress={() => this.props.navigation.navigate("Chat")}
           >
             <Text>Chat With People</Text>
           </Button>
@@ -52,7 +55,7 @@ class HomeScreen extends React.Component {
             rounded
             primary
             style={{ marginTop: 10 }}
-            onPress={() => navigate("Profile")}
+            onPress={() => this.props.navigation.navigate("Profile")}
           >
             <Text>Goto Profiles</Text>
           </Button>
@@ -61,8 +64,3 @@ class HomeScreen extends React.Component {
     );
   }
 }
-export default (SimpleApp = StackNavigator({
-  Home: { screen: HomeScreen },
-  Chat: { screen: MainScreenNavigator },
-  Profile: { screen: Profile }
-}));

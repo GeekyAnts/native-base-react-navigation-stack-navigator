@@ -1,5 +1,16 @@
 {
   "expo": {
-    "sdkVersion": "15.0.0"
-  }
+    "name": "My Elita - Staging",
+    "slug": "my-elita-staging",
+
+    "sdkVersion": "15.0.0",
+    "androidStatusBarColor": "#334393",
+      "androidStatusBar": {
+        "barStyle": "light-content",
+        "backgroundColor": "#334393",
+      },
+      "android": {
+        "package": "com.geekyants.abcd",
+        }
+      },
 }
