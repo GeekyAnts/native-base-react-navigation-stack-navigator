@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import { View } from "react-native";
-import { Container, Content, Picker, Button, Text } from "native-base";
-import Expo from "expo";
-
+import { AppLoading } from "expo";
+import * as Font from "expo-font";
+import { Ionicons } from "@expo/vector-icons";
 import HomeScreen from "./src/HomeScreen/index.js";
-export default class AwesomeApp extends Component {
+
+class AwesomeApp extends Component {
   constructor() {
     super();
     this.state = {
@@ -12,7 +12,7 @@ export default class AwesomeApp extends Component {
     };
   }
   async componentWillMount() {
-    await Expo.Font.loadAsync({
+    await Font.loadAsync({
       Roboto: require("native-base/Fonts/Roboto.ttf"),
       Roboto_medium: require("native-base/Fonts/Roboto_medium.ttf"),
       Ionicons: require("native-base/Fonts/Ionicons.ttf")
@@ -21,8 +21,10 @@ export default class AwesomeApp extends Component {
   }
   render() {
     if (!this.state.isReady) {
-      return <Expo.AppLoading />;
+      return <AppLoading />;
     }
     return <HomeScreen />;
   }
 }
+
+export default AwesomeApp;

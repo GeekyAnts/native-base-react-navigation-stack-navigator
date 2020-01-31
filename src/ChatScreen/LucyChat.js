@@ -1,5 +1,6 @@
 import React from "react";
 import { AppRegistry, View, StatusBar } from "react-native";
+import { DrawerActions } from 'react-navigation-drawer';
 import { NavigationActions } from "react-navigation";
 import {
   Button,
@@ -33,7 +34,7 @@ export default class LucyChat extends React.Component {
           <Left>
             <Button
               transparent
-              onPress={() => this.props.navigation.navigate("DrawerOpen")}
+              onPress={() => this.props.navigation.dispatch(DrawerActions.toggleDrawer())}
             >
               <Icon name="menu" />
             </Button>
