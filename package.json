@@ -1,28 +1,38 @@
 {
   "name": "AwesomeApp",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "devDependencies": {
-    "react-native-scripts": "1.9.0",
-    "jest-expo": "23.0.0",
-    "react-test-renderer": "16.0.0"
+    "@babel/core": "^7.0.0",
+    "babel-preset-expo": "~8.0.0"
   },
-  "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
+  "main": "node_modules/expo/AppEntry.js",
   "scripts": {
-    "start": "react-native-scripts start",
-    "eject": "react-native-scripts eject",
-    "android": "react-native-scripts android",
-    "ios": "react-native-scripts ios",
-    "test": "node node_modules/jest/bin/jest.js --watch"
-  },
-  "jest": {
-    "preset": "jest-expo"
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web",
+    "eject": "expo eject"
   },
   "dependencies": {
-    "expo": "^23.0.4",
-    "native-base": "^2.3.5",
-    "react": "16.0.0",
-    "react-native": "0.50.3",
-    "react-navigation": "^1.0.0-beta.22"
+    "@react-native-community/masked-view": "^0.1.6",
+    "expo": "~36.0.0",
+    "expo-font": "~8.0.0",
+    "native-base": "^2.13.8",
+    "react": "~16.9.0",
+    "react-dom": "~16.9.0",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-36.0.0.tar.gz",
+    "react-native-gesture-handler": "~1.5.0",
+    "react-native-reanimated": "^1.7.0",
+    "react-native-safe-area-context": "^0.6.4",
+    "react-native-screens": "1.0.0-alpha.17",
+    "react-native-web": "~0.11.7",
+    "react-navigation": "^4.1.0",
+    "react-navigation-drawer": "^2.3.3",
+    "react-navigation-stack": "^2.0.16",
+    "react-navigation-tabs": "^2.7.0"
+  },
+  "resolutions": {
+    "react-navigation-tabs/react-native-tab-view": "2.11.0"
   }
 }
