@@ -3,9 +3,10 @@ import HomeScreen from "./HomeScreen.js";
 import MainScreenNavigator from "../ChatScreen/index.js";
 import ProfileScreen from "../ProfileScreen/index.js";
 import SideBar from "../SideBar/SideBar.js";
-import { DrawerNavigator } from "react-navigation";
+import { createAppContainer } from 'react-navigation';
+import { createDrawerNavigator } from "react-navigation-drawer";
 
-const HomeScreenRouter = DrawerNavigator(
+const HomeScreenRouter = createAppContainer(createDrawerNavigator(
   {
     Home: { screen: HomeScreen },
     Chat: { screen: MainScreenNavigator },
@@ -14,5 +15,5 @@ const HomeScreenRouter = DrawerNavigator(
   {
     contentComponent: props => <SideBar {...props} />
   }
-);
+));
 export default HomeScreenRouter;

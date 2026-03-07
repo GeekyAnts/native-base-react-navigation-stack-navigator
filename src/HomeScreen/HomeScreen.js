@@ -1,4 +1,5 @@
 import React from "react";
+import { DrawerActions } from 'react-navigation-drawer';
 import { StatusBar } from "react-native";
 import {
   Button,
@@ -23,7 +24,7 @@ export default class HomeScreen extends React.Component {
           <Left>
             <Button
               transparent
-              onPress={() => this.props.navigation.navigate("DrawerOpen")}
+              onPress={() => this.props.navigation.dispatch(DrawerActions.toggleDrawer())}
             >
               <Icon name="menu" />
             </Button>
@@ -37,7 +38,7 @@ export default class HomeScreen extends React.Component {
           <Card>
             <CardItem>
               <Body>
-                <Text>Chat App to talk some awesome people!</Text>
+                <Text>Chat App to talk some really awesome people!</Text>
               </Body>
             </CardItem>
           </Card>

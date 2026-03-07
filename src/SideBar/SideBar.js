@@ -1,5 +1,6 @@
 import React from "react";
 import { AppRegistry, Image, StatusBar } from "react-native";
+import { DrawerActions } from "react-navigation-drawer";
 import {
   Button,
   Text,
@@ -48,7 +49,10 @@ export default class SideBar extends React.Component {
               return (
                 <ListItem
                   button
-                  onPress={() => this.props.navigation.navigate(data)}
+                  onPress={() => {
+                    this.props.navigation.dispatch(DrawerActions.closeDrawer())
+                    this.props.navigation.navigate(data)
+                  }}
                 >
                   <Text>{data}</Text>
                 </ListItem>

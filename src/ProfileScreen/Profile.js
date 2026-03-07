@@ -1,6 +1,6 @@
 import React from "react";
 import { AppRegistry, Alert } from "react-native";
-
+import { DrawerActions } from "react-navigation-drawer";
 import {
   Text,
   Container,
@@ -59,7 +59,7 @@ Profile.navigationOptions = ({ navigation }) => {
     header: (
       <Header>
         <Left>
-          <Button transparent onPress={() => navigation.navigate("DrawerOpen")}>
+          <Button transparent onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}>
             <Icon name="menu" />
           </Button>
         </Left>
